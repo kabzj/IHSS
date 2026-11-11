@@ -1,0 +1,64 @@
+:root {
+  --fg: #1d1d1f; --muted: #5f6368; --bg: #fafaf8; --card: #fff; --line: #d9d9d4;
+  --accent: #1f5f8b; --ok: #1e6b3a; --bad: #a12a12; --warnbg: #fff4d6; --badbg: #fde8e3; --hand: #fff2a8;
+  font-size: 17px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--fg); background: var(--bg); line-height: 1.45; }
+header { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; padding: .8rem 1.2rem;
+  background: var(--card); border-bottom: 1px solid var(--line); }
+.brand { font-weight: 700; color: var(--fg); text-decoration: none; }
+.steps { display: flex; gap: .4rem; list-style: none; margin: 0; padding: 0; counter-reset: s; }
+.steps li { counter-increment: s; color: var(--muted); font-size: .85rem; padding: .15rem .6rem;
+  border-radius: 1rem; }
+.steps li::before { content: counter(s) ". "; }
+.steps li.on { background: var(--accent); color: #fff; }
+main { max-width: 860px; margin: 0 auto; padding: 1rem 1.2rem 3rem; }
+footer { max-width: 860px; margin: 0 auto; padding: 1rem 1.2rem 2rem; color: var(--muted); font-size: .8rem; }
+h1 { font-size: 1.6rem; margin: .6rem 0 .8rem; }
+h2 { font-size: 1.2rem; margin: 1.4rem 0 .5rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: .8rem 1rem;
+  margin: .8rem 0; }
+.card.warn { background: var(--warnbg); }
+.card.bad { background: var(--badbg); }
+fieldset { background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin: 1rem 0;
+  padding: .6rem 1rem 1rem; }
+legend { font-weight: 700; font-size: 1.1rem; padding: 0 .3rem; }
+.q { margin: .9rem 0; }
+.q label { display: block; font-weight: 600; margin-bottom: .2rem; }
+.q.err input, .q.err select { border-color: var(--bad); }
+input, select { font: inherit; padding: .45rem .55rem; border: 1px solid #b9b9b4; border-radius: 6px;
+  width: 100%; max-width: 32rem; background: #fff; color: var(--fg); }
+input.short { max-width: 5rem; } input.mid { max-width: 14rem; } input.wide { max-width: 100%; }
+input[type=checkbox] { width: auto; }
+input:focus, select:focus, button:focus, a:focus { outline: 3px solid #8ab4d8; outline-offset: 1px; }
+.hint { color: var(--muted); font-size: .85rem; margin-top: .2rem; }
+.error { color: var(--bad); font-weight: 600; font-size: .9rem; }
+.req { color: var(--bad); font-weight: 600; }
+.note { color: var(--muted); }
+.muted { color: var(--muted); }
+.ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: #7a5200; }
+.check { display: flex; gap: .6rem; align-items: flex-start; margin: .5rem 0; }
+.check .hint { display: block; }
+button, .button { font: inherit; display: inline-block; background: var(--accent); color: #fff; border: 0;
+  border-radius: 6px; padding: .6rem 1rem; cursor: pointer; text-decoration: none; }
+button.secondary, .button.secondary { background: #e7eef4; color: var(--accent); }
+button.link { background: none; color: var(--accent); padding: 0; text-decoration: underline; }
+button.danger { color: var(--bad); }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin: 1.2rem 0; }
+form.inline { display: inline; }
+.flash { background: #e7f3ea; border: 1px solid #b8dcc2; padding: .6rem .9rem; border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: #f0f0ec; }
+table.plain td { border: 0; padding: .15rem .5rem; }
+tr.muted td { color: var(--muted); }
+tr.empty_required td { background: var(--badbg); }
+tr.empty_required td:last-child { color: var(--bad); font-weight: 700; }
+tr.handwrite td { background: var(--hand); }
+tr.handwrite td:last-child { font-weight: 700; }
+tr.county td, tr.not_applicable td, tr.empty_optional td { color: var(--muted); }
+ul.warnings li { margin: .3rem 0; }
+code { font-size: .88em; background: #f0f0ec; padding: .05rem .3rem; border-radius: 4px; word-break: break-all; }
+details summary { cursor: pointer; font-weight: 600; }

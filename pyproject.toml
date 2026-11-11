@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ihss-packet-tool"
+version = "0.1.0"
+description = "Local tool that fills California IHSS provider-enrollment forms into one print-ready packet."
+requires-python = ">=3.10"
+dependencies = ["pypdf>=5.0", "reportlab>=4.0", "requests>=2.31"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+ihss-packet = "ihss_packet.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["ihss_packet*"]
+
+[tool.setuptools.package-data]
+ihss_packet = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests", "."]
